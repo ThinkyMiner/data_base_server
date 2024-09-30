@@ -6,9 +6,16 @@
 #include <assert.h>
 #include <errno.h>
 
+#define NoError 0
 #define TagRoot 1 // 00 01
 #define TagNode 2 // 00 10
 #define TagLeaf 4 // 01 00
+#define reterr(x)\
+    errno = x;\
+    return nullptrr;
+
+typedef void *NullPtr;
+NullPtr nullptrr = 0;
 
 typedef unsigned int int32;
 typedef unsigned short int16;
